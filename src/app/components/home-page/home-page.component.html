@@ -1,0 +1,41 @@
+
+
+
+<h4> List of Pokemon </h4>
+<div class="">
+  <p *ngIf="!myPokemonList.length" class=""><i>You do not have any pokemon selected as favorite</i></p>
+  <div *ngIf="myPokemonList.length" class="row">
+    <div *ngFor="let pokemon of myPokemonList" class="card col-md-3" style="">
+      <div class="card-body text-center">
+        <!-- Pokemon Name -->
+        <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
+        <!-- Pokemon Sprite -->
+        <img src="{{ pokemon.sprites.front_default }}" alt="">
+        <!-- Experience -->
+        <p>Experience: <strong>{{ pokemon.base_experience}}</strong></p>
+        <!-- Select pokemon to compare -->
+        <button (click)="selectPokemon(pokemon)" type="button" class="btn btn-secondary">Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h4> Compare Pokemons</h4>
+<div class="row">
+
+  <div *ngFor="let pokemon of pokemonSelected; let i = index" class="col">
+    <div class="comparisonBlock text-center">
+      <p *ngIf="!pokemon.name" class=""> Select the Pokemon #{{i+1}}</p>
+      <div *ngIf="pokemon.name">
+        <h4 class=""> {{ pokemon.name | titlecase}}</h4>
+        <img class="" src="{{ pokemon.sprites.front_default }}" alt="" width="60%">
+        <hr>
+        <p *ngFor="let stat of pokemon.stats;"> {{ stat.stat.name | titlecase }}: <strong>{{ stat.base_stat }}</strong> </p>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

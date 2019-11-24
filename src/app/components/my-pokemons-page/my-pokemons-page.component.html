@@ -1,0 +1,25 @@
+<h4> All Pokemon Available <span *ngIf="myPokemonList">(Selected {{myPokemonList.length}}/10)</span></h4>
+<div class="row">
+  <div *ngFor="let pokemon of pokemosnAvailable" class="card col-md-4" >
+    <div class="card-body text-center">
+      <div class="row">
+        <div class="col">
+          <!-- Pokemon Sprite -->
+          <img src="{{ pokemon.imageUrl }}" alt="" width="100px">
+        </div>
+        <div class="col">
+          <!-- Pokemon Name -->
+          <p class="card-title">{{ pokemon.name | titlecase }}</p>
+        </div>
+        <div class="col">
+          <!-- Favorite Checkbox -->
+          <span class="bmd-form-group is-filled ">
+            <div class="checkbox">
+              <label><input type="checkbox" (click)="updateMyPokemons(pokemon.id)" [checked]="isPokemonChecked(pokemon.id)" [disabled]="!isPokemonChecked(pokemon.id) && disableCheckBoxes()"><span class="checkbox-decorator"><span class="check"></span><div class="ripple-container"></div></span> Favorite</label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
