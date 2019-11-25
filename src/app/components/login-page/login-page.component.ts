@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(public router:Router, public auth:AuthGuardService) {
     if(this.auth.isAuthenticated()){
-      this.router.navigate(['home']);
+      this.router.navigate(['myPokemons']);
     }
   }
 
@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
       console.log(userInfo);
       localStorage.setItem('wpToken', JSON.stringify(userInfo));
 
-      this.router.navigate(['home']);
+      this.router.navigate(['myPokemons']);
     },
     err => {
       this.message = err.error.message;

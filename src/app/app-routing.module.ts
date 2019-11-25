@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'myPokemons',   component: MyPokemonsPageComponent, canActivate: [ AuthGuardService ] },
 
 
-  { path: 'home',   redirectTo: '', pathMatch: 'full' }
+  { path: 'myPokemons',   redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
