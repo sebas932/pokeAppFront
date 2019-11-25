@@ -15,24 +15,27 @@ export class HomePageComponent implements OnInit {
   pokemonSelected:any[] = [ {}, {} ];
   selectedSlot:number = 0;
 
+  isLoading:boolean = true;
+
   constructor( public wpService:WordpressServiceService, public pokeApi:PokeApiService) { }
 
   ngOnInit() {
     // Get User Pokemons
     this.wpService.getUserInfo().subscribe((data:any) => {
-      let ids = (data.meta.my_pokemon_ids).split(",");
-
-      for (let id of ids) {
-        if(id){
+      let idsString = data.meta.my_pokemon_ids;
+      if(idsString){
+        let ids = idsString.split(",");
+        for (let id of ids) {
           this.pokeApi.getPokemonByID(id).subscribe((data:any) => {
             this.myPokemonList.push(data);
+            this.isLoading = false;
           });
         }
+      }else{
+        this.isLoading = false;
       }
 
-
     });
-
   }
 
 

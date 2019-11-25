@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import { AuthGuardService } from './../services/auth-guard.service';
 
 
-const endpoint = 'http://localhost/pokeApp/wp-json/pokeapi/v1';
+const endpoint = environment.pokeApiEndpoint;
 
 @Injectable({
   providedIn: 'root'

@@ -8,8 +8,8 @@
       <li class="nav-item"  routerLinkActive="active" ><a class="nav-link" [routerLink]="[ 'myPokemons' ]">My Pokemon</a></li>
       <li class="nav-item"  routerLinkActive="active" ><a class="nav-link" [routerLink]="[ 'home' ]">Compare my Pokemon</a></li>
     </ul>
-      <span class="badge badge-pill badge-dark">{{ userInfo.name }}</span>
-      <button (click)="logout()" class="btn btn-sm" type="submit">Log out</button>
+    <span class="badge badge-pill badge-dark">{{ userInfo?.name }}</span>
+    <button (click)="logout()" class="btn btn-sm" type="submit">Log out</button>
 
   </div>
 </nav>

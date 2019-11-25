@@ -11,6 +11,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MyPokemonsPageComponent } from './components/my-pokemons-page/my-pokemons-page.component';
 import { MainMenuComponent } from './components/shared/main-menu/main-menu.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainMenuComponent } from './components/shared/main-menu/main-menu.compo
     LoginPageComponent,
     HomePageComponent,
     MyPokemonsPageComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

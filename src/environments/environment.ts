@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  authEndPoint: "http://localhost/pokeApp/wp-json/jwt-auth/v1",
+  wpRestApiEndpoint: "http://localhost/pokeApp/wp-json/wp/v2",
+  pokeApiEndpoint: "http://localhost/pokeApp/wp-json/pokeapi/v1"
 };
 
 /*

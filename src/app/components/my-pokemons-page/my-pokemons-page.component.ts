@@ -13,6 +13,8 @@ export class MyPokemonsPageComponent implements OnInit {
   pokemosnAvailable;
   myPokemonList:any[] = [];
 
+  isLoading:boolean = true;
+
   constructor(public wpService:WordpressServiceService, public pokeApi:PokeApiService) { }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class MyPokemonsPageComponent implements OnInit {
     // Get List of all available pokemons
     this.pokeApi.getPokemons().subscribe((data:any) => {
       this.pokemosnAvailable = data;
+
+      this.isLoading = false;
     });
   }
 

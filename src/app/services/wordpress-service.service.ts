@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import { AuthGuardService } from './../services/auth-guard.service';
 
 
-const endpoint = 'http://localhost/pokeApp/wp-json/wp/v2';
+const endpoint = environment.wpRestApiEndpoint;
 
 
 @Injectable({

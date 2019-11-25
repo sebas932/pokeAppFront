@@ -1,17 +1,19 @@
 <h4> All Pokemon Available <span *ngIf="myPokemonList">(Selected {{myPokemonList.length}}/10)</span></h4>
+<app-loader *ngIf="isLoading"></app-loader>
+
 <div class="row">
   <div *ngFor="let pokemon of pokemosnAvailable" class="card col-md-4" >
     <div class="card-body text-center">
       <div class="row">
-        <div class="col">
+        <div class="col-md-4">
           <!-- Pokemon Sprite -->
           <img src="{{ pokemon.imageUrl }}" alt="" width="100px">
         </div>
-        <div class="col">
+        <div class="col-md-4">
           <!-- Pokemon Name -->
           <p class="card-title">{{ pokemon.name | titlecase }}</p>
         </div>
-        <div class="col">
+        <div class="col-md-4">
           <!-- Favorite Checkbox -->
           <span class="bmd-form-group is-filled ">
             <div class="checkbox">

@@ -1,13 +1,13 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { environment} from '../../envrionment';
+import { environment } from '../../environments/environment';
 
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService {
-  api_url = 'http://localhost/pokeApp/wp-json/jwt-auth/v1/token';
+  api_url = environment.authEndPoint;
 
   constructor( public router:Router, public http: HttpClient) {
 
@@ -50,6 +50,6 @@ export class AuthGuardService {
 
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    return this.http.post(this.api_url, data, {headers: headers});
+    return this.http.post(this.api_url + "/token", data, {headers: headers});
   }
 }
